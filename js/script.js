@@ -56,18 +56,18 @@ const posts = [
     }
 ];
 
-
-let container = document.getElementById("container");
-container.innerHTML = "";
+posts.forEach((post ,i) => {
+    console.log(post, i);
+    let container = document.getElementById("container");
 
 let postTemplate = `<div class="post">
 <div class="post__header">
     <div class="post-meta">                    
         <div class="post-meta__icon">
-            <img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
+            <img class="profile-pic" src="${post.author.image}" alt="${post.author.name}">                    
         </div>
         <div class="post-meta__data">
-            <div class="post-meta__author">Phil Mangione</div>
+            <div class="post-meta__author">${post.author.name}</div>
             <div class="post-meta__time">4 mesi fa</div>
         </div>                    
     </div>
@@ -91,4 +91,7 @@ let postTemplate = `<div class="post">
 </div>            
 </div>`;
 
-container.innerHTML = postTemplate;
+container.innerHTML += postTemplate;
+
+});
+
